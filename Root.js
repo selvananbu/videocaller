@@ -18,6 +18,8 @@ import NewGroup from './src/screens/Group/NewGroup';
 import EditGroup from './src/screens/Group/EditGroup';
 import CreateVideo from './src/Video/CreateVideo';
 import NewVideo from './src/Video/NewVideo';
+import EditVideo from './src/Video/EditVideo';
+import Login from './src/screens/Login/Login';
 
 
 function getTabIcon(label,isFocused) {
@@ -117,15 +119,15 @@ function CreateNewScreen(){
         <Stack.Screen name="EditGroup" component={EditGroup} />
         <Stack.Screen name="CreateVideo" component={CreateVideo} />
         <Stack.Screen name="NewVideo" component={NewVideo} />
+        <Stack.Screen name="EditVideo" component={EditVideo} />
     </Stack.Navigator>
   )
 }
  
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+function HomeTabs() {
   return (
-    <NavigationContainer>
       <Tab.Navigator tabBar={props => <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
         <Tab.Screen name="Search" component={Search} />
         <Tab.Screen name="Calendar" component={Calendar} />
@@ -133,6 +135,18 @@ export default function App() {
         <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Chat" component={ChatStack} />
       </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  
+  return (
+    
+    <NavigationContainer>
+    <Stack.Navigator>
+          <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
+          <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset"/>
+    </Stack.Navigator>
     </NavigationContainer>
   );
 }

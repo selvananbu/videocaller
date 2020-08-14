@@ -4,3 +4,9 @@ export const setGroupList = (value) => {
     payload: value
   }
 };
+export const setVideoList = (value) => {
+  return{
+    type: "SETVIDEOLIST",
+    payload: value
+  }
+};
