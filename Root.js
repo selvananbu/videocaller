@@ -20,6 +20,8 @@ import CreateVideo from './src/components/Video/CreateVideo';
 import NewVideo from './src/components/Video/NewVideo';
 import EditVideo from './src/components/Video/EditVideo';
 import Login from './src/components/Login/Login';
+import SignUp from './src/components/Login/signup';
+
 import { appTheme } from './src/utils/Themes/appTheme';
 
 
@@ -119,6 +121,7 @@ function CreateSearchScreen(){
     </Stack.Navigator>
   )
 }
+
 function CreateNewScreen(){
   return(
     <Stack.Navigator screenOptions={{
@@ -166,6 +169,21 @@ function HomeTabs() {
   );
 }
 
+function CreateSignUpScreen(){
+  return(
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+        <Stack.Screen name="SignUp" component={SignUp} type="reset"/>
+        <Stack.Screen name="NewGroup" component={NewGroup} />
+        <Stack.Screen name="EditGroup" component={EditGroup} />
+        <Stack.Screen name="CreateVideo" component={CreateVideo} />
+        <Stack.Screen name="NewVideo" component={NewVideo} />
+        <Stack.Screen name="EditVideo" component={EditVideo} />
+    </Stack.Navigator>
+  )
+}
+
 export default function App() {
   
   return (
@@ -173,12 +191,13 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
           <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
+          <Stack.Screen name="CreateSignUpScreen" component={CreateSignUpScreen}  options={{headerShown:false}} type="reset"/>
           <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
-        headerLeft: props => getGroupIcon(navigation),
-        headerRight: props => getUserIcon(navigation),
-        headerTitle:"",
-        headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
-      })}/>
+            headerLeft: props => getGroupIcon(navigation),
+            headerRight: props => getUserIcon(navigation),
+            headerTitle:"",
+            headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
+          })}/>   
     </Stack.Navigator>
     </NavigationContainer>
   );

@@ -10,9 +10,16 @@ class Login extends Component {
         super(props);
         this.onLoginPressed = this.onLoginPressed.bind(this);
     }
+
     onLoginPressed(){
         this.props.navigation.navigate("Home")
     }
+
+    onSignUpPressed(){
+        this.props.navigation.navigate("CreateSignUpScreen")
+
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -23,8 +30,14 @@ class Login extends Component {
                     title="Sign In"
                     type="outline"
                     onPress={this.onLoginPressed}
-                    containerStyle={{borderWidth:1,width:width(25),borderRadius:12,borderColor:"#227fdc"}}
+                    containerStyle={{borderWidth:1,width:width(75), marginBottom: 20,borderRadius:12,borderColor:"#227fdc"}}
                     />
+                <Button
+                    title="Sign UP"
+                    type="outline"
+                    onPress={this.onLoginPressed}
+                    containerStyle={{borderWidth:1,width:width(75), marginBottom: 20, borderRadius:12,borderColor:"#227fdc"}}
+                />
             </View>
         );
     }
