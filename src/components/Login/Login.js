@@ -9,6 +9,7 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.onLoginPressed = this.onLoginPressed.bind(this);
+        this.onSignUpPressed = this.onSignUpPressed.bind(this);
     }
 
     onLoginPressed(){
@@ -16,7 +17,7 @@ class Login extends Component {
     }
 
     onSignUpPressed(){
-        this.props.navigation.navigate("CreateSignUpScreen")
+        this.props.navigation.navigate("SigUpScreen", { screen: 'UserDetails' })
 
     }
 
@@ -35,7 +36,7 @@ class Login extends Component {
                 <Button
                     title="Sign UP"
                     type="outline"
-                    onPress={this.onLoginPressed}
+                    onPress={this.onSignUpPressed}
                     containerStyle={{borderWidth:1,width:width(75), marginBottom: 20, borderRadius:12,borderColor:"#227fdc"}}
                 />
             </View>

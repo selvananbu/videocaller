@@ -4,6 +4,10 @@ import { View, Text, StyleSheet } from 'react-native';
 
 // create a component
 class SearchHome extends Component {
+
+    componentDidMount(){
+        this.props.navigation.navigate("CreateNewScreen")
+    }
     render() {
         return (
             <View style={styles.container}>

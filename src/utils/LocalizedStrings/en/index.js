@@ -12,7 +12,8 @@ export default string = {
     delete: "Delete",
     name:"Name",
     hastags:"#hashtags",
-    topics:"topics"
+    topics:"topics",
+    create:"Create"
   },
   login: {
     title: 'Login',
@@ -57,7 +58,11 @@ export default string = {
   newgroup:{
    title:"New Group",
    description:"Description (max 300 characters)",
-   uploadimage:"Upload Image"
+   uploadimage:"Upload Image",
+   approval:"Approval Required"
+  },
+  editgroup:{
+    join:"Join"
   },
   errorCodes,
   validations,

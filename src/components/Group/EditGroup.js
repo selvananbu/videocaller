@@ -1,43 +1,45 @@
-//import liraries
 import React, { Component } from 'react';
 import { Button,Text } from 'react-native-elements';
 import { View, StyleSheet, Image } from 'react-native';
 import { height, width } from 'react-native-dimension';
+import EditGroupStyles from './EditGroupStyles';
+import NewGroupStyles from './NewGroupStyles';
+import { Localized } from '../../utils';
 
-// create a component
+
 class EditGroup extends Component {
     render() {
         var group = this.props.route.params.param
         return (
-            <View style={styles.container}>
-                <View style={{height:height(6),width:width(95),alignItems:"flex-start",justifyContent:"center"}}>
-                    <Text h3>{group.name}</Text>
+            <View style={NewGroupStyles.container}>
+                <View style={NewGroupStyles.headerEditContainer}>
+                    <Text style={NewGroupStyles.headerText}>{group.name}</Text>
                 </View>
-                <View style={{height:height(5),width:width(95),alignItems:"flex-start",justifyContent:"center",flexDirection:"row"}}>
-                    <View style={{width:width(70)}}>
-                    <Text h4>{group.description.length > 8 ? group.description.substring(0,7) + "..." :group.description}</Text>
+                <View style={EditGroupStyles.descriptionContainer}>
+                    <View style={EditGroupStyles.descriptionEditContainer}>
+                    <Text style={EditGroupStyles.descriptiontext}>{group.description.length > 8 ? group.description.substring(0,5) + "..." :group.description}</Text>
                     </View>
-                    <View style={{width:width(25),alignItems:"center",justifyContent:"center"}}>
+                    <View style={EditGroupStyles.joinButtonContainer}>
                         <Button
-                         title="Join"
-                         buttonStyle={{width:width(20),height:height(4),backgroundColor:"#fff",borderWidth:1,borderColor:"#000"}}
-                         titleStyle={{color:"#000"}}
+                         title={Localized.t("editgroup.join")}
+                         buttonStyle={EditGroupStyles.joinbuttonStyle}
+                         titleStyle={EditGroupStyles.jointextstyle}
                          />
                     </View>
                 </View>
-                <View style={{height:height(5),width:width(93),alignItems:"flex-start",justifyContent:"center"}}>
+                <View style={EditGroupStyles.hashtagContainer}>
 
-                    <Text style={{fontSize:26}}>{group.hashtag}</Text>
+                    <Text style={EditGroupStyles.hasttagText}>{group.hashtag}</Text>
                 </View>
-                <View style={{width:width(95),height:height(40),alignItems:"center",justifyContent:"center"}}>
-                    <Image source={group.avatar} style={{width:width(90),height:height(35)}} resizeMode="cover"/>
+                <View style={EditGroupStyles.editgroupIconContainer}>
+                    <Image source={group.avatar} style={EditGroupStyles.editgroupIcon} resizeMode="cover"/>
                 </View>
 
-                <View style={{width:width(93),height:height(12),alignItems:"flex-start",justifyContent:"center"}}>
-                <Text style={{fontSize:18,fontWeight:"bold"}}>
+                <View style={EditGroupStyles.editgroupDescriptionContainer}>
+                <Text style={EditGroupStyles.descriptionTextHeader}>
                         Description
                     </Text>
-                    <Text style={{fontSize:18}}>
+                    <Text style={EditGroupStyles.descriptionTextContent}>
                         {group.description}
                     </Text>
                 </View>
@@ -46,16 +48,4 @@ class EditGroup extends Component {
         );
     }
 }
-
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-});
-
-//make this component available to the app
 export default EditGroup;
