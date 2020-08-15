@@ -172,13 +172,14 @@ export default function App() {
     
     <NavigationContainer>
     <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
           <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
         headerLeft: props => getGroupIcon(navigation),
         headerRight: props => getUserIcon(navigation),
         headerTitle:"",
         headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
       })}/>
+      
+      <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
     </Stack.Navigator>
     </NavigationContainer>
   );

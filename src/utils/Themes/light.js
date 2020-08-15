@@ -21,4 +21,10 @@ export const lightColors = {
 
   tabBarInactiveColor: '#C4C2CB',
   tabBarActiveColor: '#43404D',
+
+  swicthtrackcolordisabled:"#767577",
+  
+  switchiosbackgroundcolor:"#3e3e3e",
+  switchthumbColor:"#fff",
+  swicthtrackcolorenabled:"#6aa84f"
 }

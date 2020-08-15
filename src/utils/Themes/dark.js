@@ -21,4 +21,9 @@ export const darkColors = {
 
   tabBarInactiveColor: '#C4C2CB',
   tabBarActiveColor: '#43404D',
+
+  swicthtrackcolordisabled:"#767577",
+  switchthumbColor:"#fff",
+  switchiosbackgroundcolor:"#3e3e3e",
+  swicthtrackcolorenabled:"#6aa84f"
 }

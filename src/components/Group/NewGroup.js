@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, StyleSheet,PermissionsAndroid,Switch } from 'react-native';
+import { View,PermissionsAndroid,Switch } from 'react-native';
 import { Text, Input ,Image,Button} from 'react-native-elements';
 import { width, height } from 'react-native-dimension';
 import  Icon  from 'react-native-vector-icons/AntDesign';
@@ -16,6 +16,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import NewGroupStyles from './NewGroupStyles';
 import LabelTextInput from '../common/LabelTextInput';
+import { appTheme } from '../../utils/Themes/appTheme';
 
 const options = {
     title: 'Select Avatar',
@@ -121,7 +122,7 @@ class NewGroup extends Component {
                 </View>
 
                 <View style={NewGroupStyles.textInputContainer}>
-                <Input placeholder={Localized.t("newgroup.hastags")} inputContainerStyle={{borderWidth:1}} onChangeText={(text) => this.setState({hashtag:text})}/>
+                <Input placeholder={Localized.t("common.hastags")} inputContainerStyle={{borderWidth:1}} onChangeText={(text) => this.setState({hashtag:text})}/>
                 </View>
 
                 <View style={NewGroupStyles.imageContainer}>
@@ -134,31 +135,32 @@ class NewGroup extends Component {
                 </View>
                 <View style={NewGroupStyles.groupAvatarContainer}>
                 
-                <Image source={this.state.avatarSource} style={styles.uploadAvatar}  resizeMode="contain"/>
+                <Image source={this.state.avatarSource} style={NewGroupStyles.avatarIconStyle}  resizeMode="contain"/>
                 </View>
                 </View>
 
-                <View style={{width:width(85),height:height(10),alignItems:"flex-end",justifyContent:"flex-end",flexDirection:"row"}}>
-                <View style={{width:width(30),height:height(10),alignItems:"center",justifyContent:"center"}}>
-                <Text>Approval Required</Text>
+                <View style={NewGroupStyles.approvalContainer}>
+                <View style={NewGroupStyles.approvalTextContainer}>
+                  <Text>{Localized.t("newgroup.approval")}</Text>
                 </View>
-                <View style={{width:width(15),height:height(10),alignItems:"center",justifyContent:"center"}}>
+                <View style={NewGroupStyles.approvalSwitchContainer}>
                 <Switch
-                    trackColor={{ false: "#767577", true: "#6aa84f" }}
-                    thumbColor={this.state.approvalRequired ? "#fff" : "#fff"}
-                    ios_backgroundColor="#3e3e3e"
+                    trackColor={{ false: appTheme().swicthtrackcolordisabled, true:appTheme().swicthtrackcolorenabled }}
+                    thumbColor={this.state.approvalRequired ? appTheme().switchthumbColor : appTheme().switchthumbColor}
+                    ios_backgroundColor={appTheme().switchiosbackgroundcolor}
                     onValueChange={() => this.setState({approvalRequired:!this.state.approvalRequired})}
                     value={this.state.approvalRequired}
                 />
                 </View>
                 </View>
 
-                <View style={{width:width(85),height:height(15),alignItems:"center",justifyContent:"center"}}>
+                <View style={NewGroupStyles.createButtonContainer}>
                 <Button
-                    title="Create"
+                    title={Localized.t("common.create")}
                     type="outline"
                     onPress={() => this.onNewGroupAdded()}
-                    containerStyle={{borderWidth:1,width:width(25),borderRadius:12,borderColor:"#227fdc"}}
+                    containerStyle={NewGroupStyles.createButton}
+                    titleStyle={NewGroupStyles.createButtonText}
                     />
                 </View>
                 
@@ -167,21 +169,6 @@ class NewGroup extends Component {
         );
     }
 }
-
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-    uploadAvatar:{
-        width:width(18),
-        height:height(12),
-
-    }
-});
 
 function mapStateToProps(state) {
     return {
