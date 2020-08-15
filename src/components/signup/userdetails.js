@@ -13,7 +13,7 @@ class SignUp extends Component {
     }
 
     onNextPressed(){
-        this.props.navigation.navigate("SigUpScreen", { screen: 'UserData' })
+        this.props.navigation.navigate("SigUpScreen", { screen: 'ConfirmMobile' })
     }
     
     render() {
