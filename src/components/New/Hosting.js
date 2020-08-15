@@ -31,7 +31,7 @@ class Hosting extends Component {
 
                 </View>
                 <TouchableOpacity style={{width:width(30),height:height(14),alignItems:"flex-end",justifyContent:"flex-start"}}>
-                    <Image source={require('../../image/more.png')} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+                    <Image source={require('../../assets/icons/more.png')} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
 
                 </TouchableOpacity>
             </View>

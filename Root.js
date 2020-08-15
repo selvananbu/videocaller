@@ -5,48 +5,49 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Chat from './src/screens/Chat';
-import New from './src/screens/New/New';
-import Calendar from './src/screens/Calendar';
-import Notification from './src/screens/Notification';
-import Search from './src/screens/Search';
-import Test from './src/screens/Test';
+import Chat from './src/components/Chat';
+import New from './src/components/New/New';
+import Calendar from './src/components/Calendar';
+import Notification from './src/components/Notification';
+import SearchHome from './src/components/Search/SearchHome';
+import Test from './src/components/Test';
 
 
 import { width, height, totalSize } from 'react-native-dimension';
-import NewGroup from './src/screens/Group/NewGroup';
-import EditGroup from './src/screens/Group/EditGroup';
-import CreateVideo from './src/Video/CreateVideo';
-import NewVideo from './src/Video/NewVideo';
-import EditVideo from './src/Video/EditVideo';
-import Login from './src/screens/Login/Login';
+import NewGroup from './src/components/Group/NewGroup';
+import EditGroup from './src/components/Group/EditGroup';
+import CreateVideo from './src/components/Video/CreateVideo';
+import NewVideo from './src/components/Video/NewVideo';
+import EditVideo from './src/components/Video/EditVideo';
+import Login from './src/components/Login/Login';
+import { appTheme } from './src/utils/Themes/appTheme';
 
 
 function getTabIcon(label,isFocused) {
   return(
     label === "Search"
     ?
-    <Image source={require("./src/image/search.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+    <Image source={require("./src/assets/icons/search.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
     :
     label === "Calendar"
     ?
-    <Image source={require("./src/image/calendar.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+    <Image source={require("./src/assets/icons/calendar.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
     :
     label === "CreateNewScreen"
     ?
-    <Image source={require("./src/image/plus.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+    <Image source={require("./src/assets/icons/plus.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
     :
     label === "Notification"
     ?
-    <Image source={require("./src/image/notification.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+    <Image source={require("./src/assets/icons/notification.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
     :
-    <Image source={require("./src/image/chat.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
+    <Image source={require("./src/assets/icons/chat.png")} style={{width:width(8),height:height(8)}} resizeMode="contain"/>
     
   )
 }
 function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <SafeAreaView style={{ flexDirection: 'row',height:height(8),backgroundColor:"whitesmoke"}}>
+    <SafeAreaView style={{ flexDirection: 'row',height:height(8),backgroundColor:appTheme().darkerBackgroundColor}}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -109,6 +110,15 @@ function ChatStack(){
   )
 }
 
+function CreateSearchScreen(){
+  return(
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+        <Stack.Screen name="SearchHome" component={SearchHome} type="reset"/>
+    </Stack.Navigator>
+  )
+}
 function CreateNewScreen(){
   return(
     <Stack.Navigator screenOptions={{
@@ -123,15 +133,33 @@ function CreateNewScreen(){
     </Stack.Navigator>
   )
 }
+
+const getGroupIcon = (navigation) => {
+  // console.log("klmlkmlkm",navigation);
+  return(
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
+    <Image source={require("./src/assets/icons/group.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    </TouchableOpacity>
+  )
+}
+
+const getUserIcon = (navigation) => {
+  // console.log("klmlkmlkm",navigation);
+  return(
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
+    <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    </TouchableOpacity>
+  )
+}
  
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
       <Tab.Navigator tabBar={props => <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
-        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Search" component={CreateSearchScreen} />
         <Tab.Screen name="Calendar" component={Calendar} />
-        <Tab.Screen name="CreateNewScreen" component={CreateNewScreen} />
+        <Tab.Screen name="CreateNewScreen" component={CreateNewScreen}/>
         <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Chat" component={ChatStack} />
       </Tab.Navigator>
@@ -145,7 +173,12 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator>
           <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
-          <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset"/>
+          <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
+        headerLeft: props => getGroupIcon(navigation),
+        headerRight: props => getUserIcon(navigation),
+        headerTitle:"",
+        headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
+      })}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,11 +7,15 @@ import  Icon  from 'react-native-vector-icons/AntDesign';
 import  FaceIcon  from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImagePicker from 'react-native-image-picker';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
+import { Localized } from '../../utils';
 
 import * as Action from '../../action/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import NewGroupStyles from './NewGroupStyles';
+import LabelTextInput from '../common/LabelTextInput';
 
 const options = {
     title: 'Select Avatar',
@@ -27,7 +31,7 @@ class NewGroup extends Component {
     constructor(props){
         super(props)
         this.state={
-            avatarSource:'',
+            avatarSource:require("../../assets/icons/user.png"),
             name:'',
             description:'',
             hashtag:'',
@@ -102,33 +106,35 @@ class NewGroup extends Component {
     render() {
         return (
             <KeyboardAwareScrollView>
-            <View style={styles.container}>
-                <View style={{width:width(100),height:height(15),alignItems:"center",justifyContent:"center"}}>
-                <Text h4>New Group</Text>
+            <View style={NewGroupStyles.container}>
+                <View style={NewGroupStyles.headerContainer}>
+                <Text style={NewGroupStyles.headerText}>{Localized.t("newgroup.title")}</Text>
                 </View>
 
-                <View style={{width:width(85),height:height(8),alignItems:"center",justifyContent:"center"}}>
-                <Input placeholder="Name" inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
+                <View style={NewGroupStyles.nameContainer}>
+                <Input placeholder={Localized.t("common.name")} inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
+               
                 </View>
 
-                <View style={{width:width(85),height:height(20),alignItems:"center",justifyContent:"center"}}>
-                <Input placeholder="Description (max 300 characters)" inputContainerStyle={{borderWidth:1,height:height(18),alignItems:"flex-start",justifyContent:"flex-start"}} multiline={true} maxLength={300}  onChangeText={(text) => this.setState({description:text})}/>
+                <View style={NewGroupStyles.descriptionContainer}>
+                <Input placeholder={Localized.t("newgroup.description")} inputContainerStyle={NewGroupStyles.descriptionTextInputStyle} multiline={true} maxLength={300}  onChangeText={(text) => this.setState({description:text})}/>
                 </View>
 
-                <View style={{width:width(85),height:height(8),alignItems:"center",justifyContent:"center"}}>
-                <Input placeholder="#hashtags" inputContainerStyle={{borderWidth:1}} onChangeText={(text) => this.setState({hashtag:text})}/>
+                <View style={NewGroupStyles.textInputContainer}>
+                <Input placeholder={Localized.t("newgroup.hastags")} inputContainerStyle={{borderWidth:1}} onChangeText={(text) => this.setState({hashtag:text})}/>
                 </View>
 
-                <View style={{width:width(85),height:height(15),alignItems:"center",justifyContent:"flex-start",flexDirection:"row"}}>
-                <TouchableOpacity onPress={this.onUploadImagePressed.bind(this)} style={{backgroundColor:"#cccccc",borderRadius:width(14)/2,height:width(14),width:width(14),alignItems:"center",justifyContent:"center"}} onPress={() => this.onUploadImagePressed()}>
+                <View style={NewGroupStyles.imageContainer}>
+                <TouchableOpacity onPress={this.onUploadImagePressed.bind(this)} style={NewGroupStyles.plusiconStyle} onPress={() => this.onUploadImagePressed()}>
                 <Icon name="pluscircleo" size={width(14)} color="#000"/>
-                
                 </TouchableOpacity>
-                <View style={{width:width(30),height:width(14),alignItems:"center",justifyContent:"center"}}>
-                <Text>Upload Image</Text>
+
+                <View style={NewGroupStyles.uploadImageContainer}>
+                  <Text>{Localized.t("newgroup.uploadimage")}</Text>
                 </View>
-                <View style={{width:width(58),height:height(15),alignItems:"center",justifyContent:"center"}}>
-                <Image source={this.state.avatarSource} style={styles.uploadAvatar} PlaceholderContent={  <FaceIcon name="user" size={width(14)} color="#000"/>} resizeMode="contain"/>
+                <View style={NewGroupStyles.groupAvatarContainer}>
+                
+                <Image source={this.state.avatarSource} style={styles.uploadAvatar}  resizeMode="contain"/>
                 </View>
                 </View>
 

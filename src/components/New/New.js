@@ -78,7 +78,7 @@ class New extends Component {
 
           </View>
           <TouchableOpacity style={{width:width(10),height:height(18),alignItems:"center",justifyContent:"center"}}>
-          <Image source={require("../../image/right-arrow.png")} style={{width:width(8),height:height(15)}} resizeMode="contain"/>
+          <Image source={require("../../assets/icons/right-arrow.png")} style={{width:width(8),height:height(15)}} resizeMode="contain"/>
           </TouchableOpacity>
           </View>
 

@@ -1,11 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, StyleSheet, Picker, TextInput,Switch } from 'react-native';
+import { View, StyleSheet, TextInput,Switch } from 'react-native';
 import { Button,Text,Input } from 'react-native-elements';
 import { height, width } from 'react-native-dimension';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {Picker} from '@react-native-community/picker';
 
-import * as Action from '../action/index';
+import * as Action from '../../action/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -32,20 +33,24 @@ class NewVideo extends Component {
         this.onVideoCreatePressed = this.onVideoCreatePressed.bind(this);
     }
     onVideoCreatePressed(){
-        var group = {
+        var video = {
             name:this.state.name,
             description:this.state.description,
             hashtag:this.state.hashtag,
             ispublic:this.state.ispublic,
-            
+            starttime:this.state.starttime,
+            rsvpstarttime:this.state.rsvpstarttime,
+            rsvpendtime:this.state.rsvpendtime,
+            topics:this.state.topics,
+            noofparticipants:this.state.noofparticipants,
             approvalRequired:this.state.approvalRequired
         }
 
         var videolist = this.props.videolist.videoList;
-        videolist.push(group)
+        videolist.push(video)
 
         this.props.setVideoList(videolist);
-       this.props.navigation.navigate("EditVideo")
+       this.props.navigation.navigate("EditVideo",{params:video})
     }
     render() {
         return (
