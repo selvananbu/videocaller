@@ -27,7 +27,11 @@ export default string = {
     and: ' and ',
     privacy: 'Privacy Statement',
     registerButton: 'Register',
-    nextButton: 'Next'
+    nextButton: 'Next',
+    selectInterest: 'Select Interests',
+    selectedInterest: 'Selected Interests',
+    birthday: 'BirthDay',
+    fullName: 'Full Name',
   },
   work: {
     title: 'Work',
@@ -49,7 +53,7 @@ export default string = {
     phone: 'Phone',
     username: 'Username',
     password: 'Password',
-    confirmPassword: 'Confirm password',
+    confirmPassword: 'Confirm password'
   },
   verifyCode: {
     title: 'Confirm Phone Number',
