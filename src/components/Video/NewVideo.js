@@ -10,6 +10,8 @@ import * as Action from '../../action/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import NewVideoStyle from './NewVideoStyle';
+
 // create a component
 class NewVideo extends Component {
     constructor(props){
@@ -50,13 +52,14 @@ class NewVideo extends Component {
         videolist.push(video)
 
         this.props.setVideoList(videolist);
+
        this.props.navigation.navigate("EditVideo",{params:video})
     }
     render() {
         return (
             <KeyboardAwareScrollView>
-            <View style={styles.container}>
-                 <View style={{height:height(12),width:width(95),alignItems:"center",justifyContent:"center"}}>
+            <View style={NewVideoStyle.container}>
+                 <View style={{height:height(8),width:width(95),alignItems:"center",justifyContent:"center"}}>
                     <Text h3>New Room</Text>
                 </View>
                 <View style={{width:width(85),height:height(6),alignItems:"center",justifyContent:"center"}}>
@@ -165,7 +168,7 @@ class NewVideo extends Component {
                 />
                 </View>
                </View>
-               <View style={{width:width(40),alignItems:"center",justifyContent:"center",height:height(8),flexDirection:"row"}}>
+               <View style={{width:width(40),alignItems:"center",justifyContent:"center",height:height(6),flexDirection:"row"}}>
                <Button
                          title="Create"
                          buttonStyle={{width:width(25),height:height(4),backgroundColor:"whi=tesmoke",borderWidth:1,borderColor:"#000"}}
@@ -185,8 +188,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: 'whitesmoke',
-        height:height(99)
+        backgroundColor: 'whitesmoke'
     },
 });
 

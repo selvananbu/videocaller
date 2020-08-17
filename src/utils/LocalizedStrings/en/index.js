@@ -64,6 +64,18 @@ export default string = {
   editgroup:{
     join:"Join"
   },
+  home:{
+    mygroup:"My Groups",
+    recommended:"Recommended"
+  },
+  video:{
+    rsvp:"RSVP",
+    cancel:"Cancel"
+  },
+  profile:{
+    addfriend:"Add Friend",
+    gift:"Gift"
+  },
   errorCodes,
   validations,
 }

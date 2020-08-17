@@ -4,11 +4,13 @@ import { View, StyleSheet } from 'react-native';
 import { Button,Text } from 'react-native-elements';
 import { height, width } from 'react-native-dimension';
 
+import CreateVideoStyle from './CreateVideoStyle';
+
 // create a component
 class CreateVideo extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={CreateVideoStyle.container}>
                 <View style={{height:height(8),width:width(95),alignItems:"center",justifyContent:"center"}}>
                     <Text h3>Create</Text>
                 </View>

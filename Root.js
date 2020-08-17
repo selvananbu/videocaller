@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Chat from './src/components/Chat';
-import New from './src/components/New/New';
+import Home from './src/components/Home/Home';
 import Calendar from './src/components/Calendar';
 import Notification from './src/components/Notification';
 import SearchHome from './src/components/Search/SearchHome';
@@ -23,6 +23,8 @@ import Login from './src/components/Login/Login';
 import {SigUpScreen} from './src/components/signup/signuproot';
 
 import { appTheme } from './src/utils/Themes/appTheme';
+import EditVideoItem from './src/components/Video/EditVideoItem';
+import Profile from './src/components/Header/Profile';
 
 
 function getTabIcon(label,isFocused) {
@@ -127,12 +129,13 @@ function CreateNewScreen(){
     <Stack.Navigator screenOptions={{
       headerShown: false
     }}>
-        <Stack.Screen name="New" component={New} type="reset"/>
+        <Stack.Screen name="Home" component={Home} type="reset"/>
         <Stack.Screen name="NewGroup" component={NewGroup} />
         <Stack.Screen name="EditGroup" component={EditGroup} />
         <Stack.Screen name="CreateVideo" component={CreateVideo} />
         <Stack.Screen name="NewVideo" component={NewVideo} />
         <Stack.Screen name="EditVideo" component={EditVideo} />
+        <Stack.Screen name="EditVideoItem" component={EditVideoItem} />
     </Stack.Navigator>
   )
 }
@@ -140,7 +143,7 @@ function CreateNewScreen(){
 const getGroupIcon = (navigation) => {
   // console.log("klmlkmlkm",navigation);
   return(
-    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
     <Image source={require("./src/assets/icons/group.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
@@ -149,7 +152,7 @@ const getGroupIcon = (navigation) => {
 const getUserIcon = (navigation) => {
   // console.log("klmlkmlkm",navigation);
   return(
-    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
     <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
@@ -179,6 +182,7 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="SigUpScreen" component={SigUpScreen}  options={{headerShown:false}} type="reset"/>
+      <Stack.Screen name="Profile" component={Profile}  options={{headerShown:false}} type="reset"/>
 
       <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
         headerLeft: props => getGroupIcon(navigation),

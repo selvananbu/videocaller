@@ -10,3 +10,9 @@ export const setVideoList = (value) => {
     payload: value
   }
 };
+export const setSearchText = (value) => {
+  return{
+    type: "SETSEARCHTEXT",
+    payload: value
+  }
+};

@@ -11,6 +11,7 @@ import * as Action from '../../action/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import EditVideoStyle from './EditVideoStyle';
 
 // create a component
 class EditVideo extends Component {
@@ -22,10 +23,10 @@ class EditVideo extends Component {
         }
     }
     render() {
-        console.log(this.props);
+        console.log(this.props.route.params);
         return (
             <KeyboardAwareScrollView>
-            <View style={styles.container}>
+            <View style={EditVideoStyle.container}>
                  <View style={{height:height(12),width:width(95),alignItems:"center",justifyContent:"center"}}>
                     <Text h3>Video Call</Text>
                 </View>

@@ -56,7 +56,8 @@ class NewGroup extends Component {
         groupList.push(group)
 
         this.props.setGroupList(groupList);
-        this.props.navigation.navigate("New");
+
+        this.props.navigation.navigate("Home");
     }
     async checkForPermission() {
         try {
