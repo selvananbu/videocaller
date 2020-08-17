@@ -41,7 +41,12 @@ const SignUpStyles = StyleSheet.create({
      fontFamily:"Rubik-Bold"
      
     },
-    
+    groupAvatarContainer:{
+        width:width(30),
+        height:height(15),
+        alignItems:"center",
+        justifyContent:"center"
+      },
     nameContainer:{
         width:width(85),
         height:height(8),
@@ -52,6 +57,42 @@ const SignUpStyles = StyleSheet.create({
       textInputContainer:{
         width:width(85),
         height:height(8),
+        alignItems:"center",
+        justifyContent:"center"
+      },
+      imageContainer:{
+        width:width(85),
+        height:height(15),
+        alignItems:"center",
+        justifyContent:"center",
+        flexDirection:"row"
+      },
+      uploadImageContainer:{
+        width:width(37),
+        height:width(14),
+        alignItems:"center",
+        justifyContent:"center"
+      },
+      avatarIconStyle:{
+        width:width(18),
+        height:height(12)
+      },
+      iconStyle:{
+        width:width(10),
+        height:height(10)
+      },
+      interestStyle:{
+        color:appTheme().textColor,
+        fontSize:20,
+        fontWeight:"bold",
+        fontFamily:"Rubik-Bold"
+
+      },
+      plusIconStyle:{
+        backgroundColor:"#cccccc",
+        borderRadius:width(14)/2,
+        height:width(14),
+        width:width(14),
         alignItems:"center",
         justifyContent:"center"
       },

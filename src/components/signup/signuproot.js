@@ -5,6 +5,8 @@ import * as React from 'react';
 import UserDetails from './userdetails';
 import ConfirmMobile from './confirmmobile';
 import UserData from './userdata';
+import UploadPic from './uploadpic';
+import UserInterests from './userinterests';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +18,9 @@ export const SigUpScreen = () => {
           <Stack.Screen name="UserDetails" component={UserDetails} type="reset"/>
           <Stack.Screen name="ConfirmMobile" component={ConfirmMobile} />
           <Stack.Screen name="UserData" component={UserData} />
+          <Stack.Screen name="UploadPic" component={UploadPic} />
+          <Stack.Screen name="UserInterests" component={UserInterests} />
+          
       </Stack.Navigator>
     )
 }

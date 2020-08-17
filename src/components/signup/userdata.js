@@ -13,7 +13,7 @@ class UserData extends Component {
     }
 
     onNextPressed(){
-        this.props.navigation.navigate("SigUpScreen", { screen: 'ConfirmMobile' })
+        this.props.navigation.navigate("SigUpScreen", { screen: 'UploadPic' })
     }
 
     render() {
@@ -22,7 +22,18 @@ class UserData extends Component {
                 <View style={SignUpStyles.headerView}>
                     <Text style={SignUpStyles.title}>{Localized.t('signup.title')}</Text>
                 </View>
-                
+                <View style={SignUpStyles.nameContainer}>
+                    <Input placeholder={Localized.t('signup.birthday')} inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
+               
+                </View>
+                <View style={SignUpStyles.nameContainer}>
+                    <Input placeholder={Localized.t('signup.fullName')} inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
+               
+                </View>
+                {/* <View style={SignUpStyles.nameContainer}>
+                    <Input placeholder={Localized.t("controls.birthday")} inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
+               
+                </View> */}
                 {/* <View style={SignUpStyles.nameContainer}>
                     <Input placeholder={Localized.t("controls.username")} inputContainerStyle={{borderWidth:1}}  onChangeText={(text) => this.setState({name:text})}/>
                
