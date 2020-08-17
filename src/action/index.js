@@ -4,9 +4,17 @@ export const setGroupList = (value) => {
     payload: value
   }
 };
+
 export const setVideoList = (value) => {
   return{
     type: "SETVIDEOLIST",
+    payload: value
+  }
+};
+
+export const setUserData = (value) => {
+  return{
+    type: "USERDATA",
     payload: value
   }
 };

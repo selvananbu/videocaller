@@ -7,6 +7,8 @@ import ConfirmMobile from './confirmmobile';
 import UserData from './userdata';
 import UploadPic from './uploadpic';
 import UserInterests from './userinterests';
+import InvitePage from './invitepage';
+import { AddressBook, ConnectFacebook, Share, IOPermission } from './permission'
 
 const Stack = createStackNavigator();
 
@@ -20,6 +22,11 @@ export const SigUpScreen = () => {
           <Stack.Screen name="UserData" component={UserData} />
           <Stack.Screen name="UploadPic" component={UploadPic} />
           <Stack.Screen name="UserInterests" component={UserInterests} />
+          <Stack.Screen name="InvitePage" component={InvitePage} />
+          <Stack.Screen name="AddressBook" component={AddressBook} />
+          <Stack.Screen name="ConnectFacebook" component={ConnectFacebook} />
+          <Stack.Screen name="Share" component={Share} />
+          <Stack.Screen name="IOPermission" component={IOPermission} />
           
       </Stack.Navigator>
     )
