@@ -21,6 +21,7 @@ import NewVideo from './src/components/Video/NewVideo';
 import EditVideo from './src/components/Video/EditVideo';
 import Login from './src/components/Login/Login';
 import {SigUpScreen} from './src/components/signup/signuproot';
+import {Settings} from './src/components/settings/settingsroot';
 
 import { appTheme } from './src/utils/Themes/appTheme';
 import EditVideoItem from './src/components/Video/EditVideoItem';
@@ -150,7 +151,7 @@ const getGroupIcon = (navigation) => {
 }
 
 const getUserIcon = (navigation) => {
-  // console.log("klmlkmlkm",navigation);
+  console.log("klmlkmlkm",navigation);
   return(
     <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
     <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
@@ -162,7 +163,9 @@ const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
-      <Tab.Navigator tabBar={props => <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
+      <Tab.Navigator tabBar={props => 
+        
+      <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
         <Tab.Screen name="Search" component={CreateSearchScreen} />
         <Tab.Screen name="Calendar" component={Calendar} />
         <Tab.Screen name="CreateNewScreen" component={CreateNewScreen}/>
@@ -174,7 +177,7 @@ function HomeTabs() {
 
 
 
-export default function App() {
+export default function App(props) {
   
   return (
     
