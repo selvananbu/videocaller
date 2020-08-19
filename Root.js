@@ -21,6 +21,7 @@ import NewVideo from './src/components/Video/NewVideo';
 import EditVideo from './src/components/Video/EditVideo';
 import Login from './src/components/Login/Login';
 import {SigUpScreen} from './src/components/signup/signuproot';
+import {Settings} from './src/components/settings/settingsroot';
 
 import { appTheme } from './src/utils/Themes/appTheme';
 
@@ -140,17 +141,26 @@ function CreateNewScreen(){
 const getGroupIcon = (navigation) => {
   // console.log("klmlkmlkm",navigation);
   return(
-    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.goBack("Settings")}>
     <Image source={require("./src/assets/icons/group.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
 }
 
 const getUserIcon = (navigation) => {
-  // console.log("klmlkmlkm",navigation);
+  console.log("klmlkmlkm",navigation);
   return(
-    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Setting")}>
-    <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Settings", { screen: 'SettingsList' })}>
+      <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    </TouchableOpacity>
+  )
+}
+
+const backIcon = (navigation) => {
+  console.log("klmlkmlkm",navigation);
+  return(
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.goBack()}>
+      <Image source={require("./src/assets/icons/backicon.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
 }
@@ -159,7 +169,10 @@ const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
-      <Tab.Navigator tabBar={props => <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
+      <Tab.Navigator tabBar={props => 
+        
+      <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
+        <Stack.Screen name="Settings" component={Settings}  options={{headerShown:false}} type="reset"/>
         <Tab.Screen name="Search" component={CreateSearchScreen} />
         <Tab.Screen name="Calendar" component={Calendar} />
         <Tab.Screen name="CreateNewScreen" component={CreateNewScreen}/>
@@ -171,7 +184,7 @@ function HomeTabs() {
 
 
 
-export default function App() {
+export default function App(props) {
   
   return (
     
@@ -179,7 +192,7 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="SigUpScreen" component={SigUpScreen}  options={{headerShown:false}} type="reset"/>
-
+      
       <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
         headerLeft: props => getGroupIcon(navigation),
         headerRight: props => getUserIcon(navigation),

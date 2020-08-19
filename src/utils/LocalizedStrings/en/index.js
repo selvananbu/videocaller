@@ -38,6 +38,9 @@ export default string = {
     share: 'Share',
     permission: 'Permissions',
   },
+  settings: {
+    setting: 'Settings'
+  },
   work: {
     title: 'Work',
     welcome: 'Welcome, {{0}}'
