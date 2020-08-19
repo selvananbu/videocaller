@@ -34,9 +34,7 @@ function SettingsList(props) {
                                 <Text style={SettingsStyle.interestStyle}>
                                     Manage my account
                                 </Text>
-                                <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={() => openList("ManageAccounts")}>
-                                    <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                </TouchableOpacity>
+                                <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
                             </TouchableOpacity>
                     </View>
                     <View key = {'1'} style = {SettingsStyle.settingsList}>
@@ -45,9 +43,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Billing
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'2'} style = {SettingsStyle.settingsList}>
@@ -56,9 +54,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Coin
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'3'} style = {SettingsStyle.settingsList}>
@@ -67,9 +65,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Language
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'4'} style = {SettingsStyle.settingsList}>
@@ -78,9 +76,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Coin
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'5'} style = {SettingsStyle.settingsList}>
@@ -89,9 +87,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         FAQ - Privacy
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'6'} style = {SettingsStyle.settingsList}>
@@ -100,9 +98,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Friends
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'7'} style = {SettingsStyle.settingsList}>
@@ -111,9 +109,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Sharing
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'8'} style = {SettingsStyle.settingsList}>
@@ -122,9 +120,9 @@ function SettingsList(props) {
                                     <Text style={SettingsStyle.interestStyle}>
                                         Chat history
                                     </Text>
-                                    <TouchableOpacity style={{ height: height(10), width: width(12)}} onPress={openList}>
+                                    
                                         <Image source={require('../../assets/icons/righticon.png')} style={SettingsStyle.iconStyle} resizeMode='contain' />
-                                    </TouchableOpacity>
+                                    
                                 </TouchableOpacity>
                         </View>
                         <View key = {'9'} style = {SettingsStyle.settingsList}>

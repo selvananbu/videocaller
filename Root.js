@@ -172,7 +172,6 @@ function HomeTabs() {
       <Tab.Navigator tabBar={props => 
         
       <MyTabBar {...props} />} tabBarOptions={style={height:height(5)}} >
-        <Stack.Screen name="Settings" component={Settings}  options={{headerShown:false}} type="reset"/>
         <Tab.Screen name="Search" component={CreateSearchScreen} />
         <Tab.Screen name="Calendar" component={Calendar} />
         <Tab.Screen name="CreateNewScreen" component={CreateNewScreen}/>
@@ -192,6 +191,12 @@ export default function App(props) {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="SigUpScreen" component={SigUpScreen}  options={{headerShown:false}} type="reset"/>
+      <Stack.Screen name="Settings" component={Settings}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
+        headerLeft: props => getGroupIcon(navigation),
+        headerRight: props => getUserIcon(navigation),
+        headerTitle:"",
+        headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
+      })}/>
       
       <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
         headerLeft: props => getGroupIcon(navigation),

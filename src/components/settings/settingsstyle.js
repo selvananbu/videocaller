@@ -43,8 +43,10 @@ const SettingsStyle = StyleSheet.create({
      
     },
       iconStyle:{
-        width:width(10),
-        height:height(10)
+        width:width(7),
+        height:height(4),
+        paddingRight: width(10),
+        justifyContent: "center"
       },
       interestStyle:{
         color:appTheme().textColor,
