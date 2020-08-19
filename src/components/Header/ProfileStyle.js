@@ -7,7 +7,7 @@ const ProfileStyle = StyleSheet.create({
     container:{
         flex:1,
         alignItems:"center",
-        justifyContent:"center",
+        justifyContent:"space-between",
         backgroundColor:appTheme().darkerBackgroundColor
     },
     topContainer:{
@@ -46,18 +46,34 @@ const ProfileStyle = StyleSheet.create({
       },
       avatarContainer:{
           width:width(99),
-          height:height(45),
+          height:height(30),
           alignItems:"center",
           justifyContent:"center"
       },
       image:{
           width:width(95),
-          height:height(35)
+          height:height(30)
       },
       bottomContainer:{
           width:width(99),
           height:height(40)
-      }
+      },
+      interestStyle:{
+        color:appTheme().textColor,
+        fontSize:20,
+        fontWeight:"bold",
+        fontFamily:"Rubik-Bold",
+        paddingLeft: width(5)
+      },
+      settingsList:{
+        width: width(100), height: height(10), flexDirection: "row", justifyContent: 'space-between', alignItems: "center",  borderWidth: 1
+      },
+      iconStyle:{
+        width:width(7),
+        height:height(4),
+        paddingRight: width(10),
+        justifyContent: "center"
+      },
     
     
 })
