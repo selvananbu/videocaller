@@ -14,7 +14,7 @@ function SettingsList(props) {
         console.log(props, 'sadsad')
         switch(type){
             case 'ManageAccounts':
-                props.navigation.navigate("Settings", { screen: 'SettingsManageAccount' })
+                props.navigation.navigate("Settings", { screen: 'SettingsManageAccount', param: "Manage Account" })
             break;
             default:
             break;
