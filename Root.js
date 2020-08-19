@@ -183,6 +183,7 @@ export default function App() {
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="SigUpScreen" component={SigUpScreen}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="Profile" component={Profile}  options={{headerShown:false}} type="reset"/>
+      <Stack.Screen name="Settings" component={Settings}  options={{headerShown:false}} type="reset"/>
 
       <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({
         headerLeft: props => getGroupIcon(navigation),
