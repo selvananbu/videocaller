@@ -55,7 +55,7 @@ class Profile extends Component {
                                 Settings
                             </Text>
                             
-                                <Image source={require('../../assets/icons/righticon.png')} style={ProfileStyle.iconStyle} resizeMode='contain' />
+                                <Image source={require('../../assets/icons/right-arrow.png')} style={ProfileStyle.iconStyle} resizeMode='contain' />
                             
                         </TouchableOpacity>
                 </View>
