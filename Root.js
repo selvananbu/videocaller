@@ -21,11 +21,15 @@ import NewVideo from './src/components/Video/NewVideo';
 import EditVideo from './src/components/Video/EditVideo';
 import Login from './src/components/Login/Login';
 import {SigUpScreen} from './src/components/signup/signuproot';
+import {NotificationRoot} from './src/components/Notification/notificationroot';
 import {Settings} from './src/components/settings/settingsroot';
 
 import { appTheme } from './src/utils/Themes/appTheme';
 import EditVideoItem from './src/components/Video/EditVideoItem';
 import Profile from './src/components/Header/Profile';
+import NotificationScreen from './src/components/Notification/NotificationScreen';
+import friendscreen from './src/components/Header/friendscreen';
+import { MessageRoot } from './src/components/Message/messageroot';
 
 
 function getTabIcon(label,isFocused) {
@@ -144,21 +148,36 @@ function CreateNewScreen(){
 const getGroupIcon = (navigation) => {
   // console.log("klmlkmlkm",navigation);
   return(
-    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("FriendList")}>
     <Image source={require("./src/assets/icons/group.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
 }
 
+const getBackIcon = (navigation) => {
+  return(
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Search")}>
+    <Image source={require("./src/assets/icons/left-arrow.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    </TouchableOpacity>
+  )
+}
+ 
 const getUserIcon = (navigation) => {
-  console.log("klmlkmlkm",navigation);
   return(
     <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
     <Image source={require("./src/assets/icons/user.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
     </TouchableOpacity>
   )
 }
- 
+
+const getAddIcon = (navigation) => {
+  return(
+    <TouchableOpacity style={{width:width(12),alignItems:"center",justifyContent:"center",backgroundColor:appTheme().darkerBackgroundColor}} onPress={() => navigation.navigate("Profile")}>
+    <Image source={require("./src/assets/icons/plus-friend.png")} style={{width:width(8),height:height(6)}} resizeMode="contain"/>
+    <Text>Invite</Text>
+    </TouchableOpacity>
+  )
+}
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
@@ -169,8 +188,10 @@ function HomeTabs() {
         <Tab.Screen name="Search" component={CreateSearchScreen} />
         <Tab.Screen name="Calendar" component={Calendar} />
         <Tab.Screen name="CreateNewScreen" component={CreateNewScreen}/>
-        <Tab.Screen name="Notification" component={Notification} />
-        <Tab.Screen name="Chat" component={ChatStack} />
+        <Tab.Screen name="Notification" component={NotificationRoot}/>
+        {/* <Tab.Screen name="Notification" component={Notification} /> */}
+        <Tab.Screen name="Chat" component={MessageRoot} />
+        
       </Tab.Navigator>
   );
 }
@@ -186,6 +207,12 @@ export default function App(props) {
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="SigUpScreen" component={SigUpScreen}  options={{headerShown:false}} type="reset"/>
       <Stack.Screen name="Profile" component={Profile}  options={{headerShown:false}} type="reset"/>
+      <Stack.Screen name="FriendList" component={friendscreen} options={({ navigation, route }) => ({
+        headerLeft: props => getBackIcon(navigation),
+        headerRight: props => getAddIcon(navigation),
+        headerTitle:"Friends",
+        headerStyle:{backgroundColor:appTheme().darkerBackgroundColor,borderBottomWidth:0,elevation:0}
+      })}   type="reset"/>
       <Stack.Screen name="Settings" component={Settings}  options={{headerShown:false}} type="reset"/>
 
       <Stack.Screen name="Home" component={HomeTabs}  options={{headerShown:false}} type="reset" options={({ navigation, route }) => ({

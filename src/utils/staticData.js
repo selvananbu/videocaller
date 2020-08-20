@@ -1,5 +1,98 @@
 const no_avatar = 'https://www.pinpng.com/pngs/m/341-3415688_no-avatar-png-transparent-png.png'
 
+export const notificationData =
+  {
+    notification:[{
+      _id:"4512-ck23",
+      avatar:require("../assets/icons/user.png"),
+      content:"Joined Chat",
+      time:"5 mins ago",
+      username:"Happy Hour"
+    },
+    {
+      _id:"4512-ck23",
+      avatar:require("../assets/icons/user.png"),
+      content:"Joined Chat",
+      time:"5 mins ago",
+      username:"Happy Hour"
+    },
+    {
+      _id:"4512-ck23",
+      avatar:require("../assets/icons/user.png"),
+      content:"Joined Chat",
+      time:"5 mins ago",
+      username:"Happy Hour"
+    }]
+  }
+  export const messageData =
+  {
+    messages:[{
+      _id:"234-443rt",
+      avatar:require("../assets/icons/user.png"),
+      name:"hunj",
+      content:"Last message",
+      time:"Wednesday,Jan 3,2020",
+      count:12
+    },
+    {
+      _id:"234-q223",
+      avatar:require("../assets/icons/user.png"),
+      name:"wrer",
+      content:"Last message",
+      time:"Wednesday,Jan 3,2020",
+      count:2
+    },{
+      _id:"234-sdcf",
+      avatar:require("../assets/icons/user.png"),
+      name:"fgyh",
+      content:"Last message",
+      time:"Wednesday,Jan 3,2020",
+      count:3
+    }]
+  }
+export const friendsData =
+  {
+    friends:[{
+      _id:"234-443rt",
+      avatar:require("../assets/icons/user.png"),
+      name:"hunj",
+      status:0,
+      type:"person",
+      
+  },
+  {
+    _id:"234-443rt",
+    avatar:require("../assets/icons/user.png"),
+    name:"efrefr",
+    status:1,
+    type:"person",
+    
+},
+{
+  _id:"234-443rt",
+  avatar:require("../assets/icons/user.png"),
+  name:"trgtgse",
+  status:1,
+  type:"group",
+  
+},
+{
+  _id:"234-443rt",
+  avatar:require("../assets/icons/user.png"),
+  name:"avtrgtr",
+  status:0,
+  type:"person",
+  
+},
+{
+  _id:"234-443rt",
+  avatar:require("../assets/icons/user.png"),
+  name:"gstertrt",
+  status:0,
+  type:"person",
+  
+},
+]}
 export const messagesData = [
   {
     messages: [{
