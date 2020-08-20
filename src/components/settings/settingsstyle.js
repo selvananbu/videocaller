@@ -63,6 +63,13 @@ const SettingsStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "flex-start"
       },
+      nameContainer:{
+        width:width(85),
+        height:height(8),
+        marginBottom:5,
+        alignItems:"center",
+        justifyContent:"center"
+      },
       settingsList:{
         width: width(100), height: height(10), flexDirection: "row", justifyContent: 'space-between', alignItems: "center",  borderWidth: 1
       }
