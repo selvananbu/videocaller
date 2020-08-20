@@ -68,7 +68,7 @@ class SearchHome extends Component {
                         return(
                         <TouchableOpacity style={idx !== tabOptions.length-1 ?
                             [SearchHomeStyle.tabHeaderTextContainer,{borderRightWidth:1}] : SearchHomeStyle.tabHeaderTextContainer} onPress={() => this.onTabChanged(idx)}>
-                        <Text style={this.state.selectedTab === idx ? [SearchHomeStyle.tabHeaderText,{fontSize:20,fontWeight:"bold"}] : SearchHomeStyle.tabHeaderText}>
+                        <Text style={this.state.selectedTab === idx ? [SearchHomeStyle.tabHeaderText,{fontSize:18,fontWeight:"bold"}] : SearchHomeStyle.tabHeaderText}>
                             {tab}
                         </Text>
                     </TouchableOpacity>
