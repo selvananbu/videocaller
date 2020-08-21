@@ -32,6 +32,15 @@ export default string = {
     selectedInterest: 'Selected Interests',
     birthday: 'BirthDay',
     fullName: 'Full Name',
+    invitePeople: 'Invite Friends',
+    allowAddress: 'Allow Address Book',
+    connectFb: 'Connect Facebook',
+    share: 'Share',
+    permission: 'Permissions',
+  },
+  
+  settings: {
+    setting: 'Settings'
   },
   work: {
     title: 'Work',
